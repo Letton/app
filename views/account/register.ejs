@@ -1,0 +1,39 @@
+<%- include('../partials/header.ejs'); -%>
+
+<main class="card-wrapper">
+    <div class="card" style="width: 18rem;">
+        <div class="card-header">
+          Регистрация
+        </div>
+        <div class="card-body">
+            <form method="post">
+                <div>
+                  <label for="InputLogin" class="form-label">Логин</label>
+                  <input type="text" class="form-control" id="InputLogin" name='login'>
+                </div>
+                <div>
+                  <label for="InputPassword" class="form-label">Пароль</label>
+                  <input type="password" class="form-control" id="InputPassword" name='password'>
+                </div>
+                <div style="margin-bottom: 10px;">
+                    <label for="InputRepeatPassword" class="form-label">Повтор пароля</label>
+                    <input type="password" class="form-control" id="InputRepeatPassword" name='repeatPassword'>
+                  </div>
+                <button type="submit" class="btn btn-primary" style="display: block; margin: 0 auto;">Зарегистрироваться</button>
+            </form>
+        </div>
+      </div>
+</main>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+<% if (error) { %>
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: '<%= error %>',
+        })
+    </script>
+<% } %>
+
+<%- include('../partials/footer.ejs'); -%>
