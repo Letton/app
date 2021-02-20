@@ -4,6 +4,7 @@ const db = require("../db")
 const jwt = require('jsonwebtoken')
 const { SALT } = require('../config')
 const crypto = require('crypto')
+const { accessSync } = require("fs")
 
 const authorization = (req, res, next) => {
     try {
@@ -54,7 +55,8 @@ accountRouter.post("/register", async (req, res) => {
             login: req.body.login,
             password: crypto.createHash('sha256').update(req.body.password).digest('hex'),
             role: 'user',
-            ip: req.socket.remoteAddress
+            ip: req.socket.remoteAddress,
+            registrationDate: new Date()
         }
         const status = await db.get().collection('users').insertOne(user)
         const token = jwt.sign({ login: req.body.login }, SALT);
@@ -64,5 +66,30 @@ accountRouter.post("/register", async (req, res) => {
         res.redirect('/')
     }  
 })
+
+accountRouter.get("/profile", async (req, res) => {
+    if (req.login) {
+        const doc = await db.get().collection('users').findOne({login: req.login})
+        res.render('account/index.ejs', {user: doc.login, userData: doc, route: 'account'})
+    } else {
+        res.status;(403).render('errors/403', {user: req.login, route: 'account'})
+    }
+})
+
+accountRouter.get("/logout", async (req, res) => {
+    res.clearCookie('token')
+    res.redirect('/')
+    
+})
+
+accountRouter.get("/:id", async (req, res) => {
+    const doc = await db.get().collection('users').findOne({login: req.params.id})
+    if (!doc) {
+        res.status(404).render('errors/404', {user: req.login, route: 'account'})
+    } else {
+        res.render('account/user.ejs', {user: doc.login, userData: doc, route: 'account'})
+    }
+})
+
 
 module.exports = accountRouter

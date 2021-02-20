@@ -18,7 +18,7 @@ app.use("/", mainRouter)
 app.use("/account", accountRouter)
 
 app.use(function (req, res, next) {
-    res.status(404).send("Not Found")
+    res.status(404).render('errors/404', {route: 'main', user: req.login})
 })
 
 

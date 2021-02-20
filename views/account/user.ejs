@@ -1,0 +1,16 @@
+<%- include('../partials/header.ejs'); -%>
+
+<main class="card-wrapper">
+    <div class="card" style="width: 18rem;">
+        <div class="card-header">
+          Пользователь <b><%= userData.login %></b> 
+        </div>
+        <div class="card-body">
+            <div class="card-div">Роль: <b><%= userData.role %></b> </div>
+            <div class="card-div">Дата регистрации: <b><%= userData.registrationDate %></b> </div>
+        </div>
+      </div>
+</main>
+
+
+<%- include('../partials/footer.ejs'); -%>
