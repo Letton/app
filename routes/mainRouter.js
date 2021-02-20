@@ -14,19 +14,15 @@ const authorization = (req, res, next) => {
 mainRouter.use(authorization)
 
 mainRouter.get("/", async (req, res) => {
-    res.render('main/index', {route: 'main', user: req.login, error: null})
+    const docs = await db.get().collection('posts').find().toArray()
+    res.render('main/index', {route: 'main', user: req.login, posts: docs})
     
 })
 
-mainRouter.get("/work", async (req, res) => {
-    res.render('main/work', {route: 'main', user: req.login, error: null})
+mainRouter.get("/users", async (req, res) => {
+    const docs = await db.get().collection('users').find().toArray()
+    res.render('main/users', {route: 'main', user: req.login, users: docs})
     
 })
-
-mainRouter.get("/blog", async (req, res) => {
-    res.render('main/blog', {route: 'main', user: req.login, error: null})
-    
-})
-
 
 module.exports = mainRouter

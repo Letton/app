@@ -1,0 +1,27 @@
+<%- include('../partials/header.ejs'); -%>
+
+<main>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+              Панель администратора
+            </div>
+            <div class="card-body">
+                <h5>Добавление записи</h5>
+                <form method="post">
+                    <div>
+                      <label for="title" class="form-label">Заголовок</label>
+                      <input type="text" class="form-control" id="title" name='title'>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <label for="text" class="form-label">Текст</label>
+                        <textarea type="text" class="form-control" id="text" name='text'></textarea>
+                      </div>
+                    <button type="submit" class="btn btn-primary" style="display: block; margin: 0 auto;">Добавить запись</button>
+                </form>
+            </div>
+          </div>
+    </div>
+</main>
+
+<%- include('../partials/footer.ejs'); -%>

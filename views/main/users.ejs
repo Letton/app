@@ -1,0 +1,16 @@
+<%- include('../partials/header.ejs'); -%>
+
+<main>
+    <div class="container">
+        <% users.forEach(function(user){ %>
+            <article>
+                <h2><%= user.login %></h2>
+                <a href="/account/<%= user.login %> ">Профиль</a>
+            </article>
+        <% }); %>
+        
+        
+    </div>
+</main>
+
+<%- include('../partials/footer.ejs'); -%>

@@ -1,7 +1,42 @@
-<%- include('../partials/header.ejs'); -%>
+  
+<!DOCTYPE html>
+<html lang="ru">
 
-<main>
-    <h1>403 - Access denied</h1>
-</main>
+<head>
+	<meta charset="utf-8">
+	<title>&lt; CODE /&gt;</title>
+	<meta name="description" content="01001001 01110100 - cайт о программировании">
 
-<%- include('../partials/footer.ejs'); -%>
+  <meta name="viewport" content="width=device-width">
+    
+	<link rel="icon" href="/images/favicon.png">
+
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#000">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#000">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#000">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <style>
+        body {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+        }
+        .error-wrapper {
+            display: block;
+            margin: auto auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-wrapper">
+        <h1>403 - Access Denied</h1>
+        <a href="/">На главную</a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+</body>
+</html>    
