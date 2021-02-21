@@ -2,10 +2,13 @@
 
 <main>
     <div class="container">
+        <% if (posts.length == 0) { %>
+            <p class="text-center">Здесь пока ничего нет</p>
+        <% } %>
         <% posts.forEach(function(post){ %>
             <article>
                 <h2><%- post.title %></h2>
-                <p><%- post.text %></p>
+                <p><%- post.description %></p>
                 <a href="/post/<%= post.number %>">Читать далее</a>
             </article>
         <% }); %>

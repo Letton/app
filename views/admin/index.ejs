@@ -7,8 +7,30 @@
               Панель администратора
             </div>
             <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <h2>Посты</h2>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Название</th>
+                    <th scope="col">Описание</th>
+                    <th scope="col">Удалить</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% posts.forEach(function(post){ %>
+                    <tr>
+                      <th scope="row"><%- post.number %></th>
+                      <td><%- post.title %></td>
+                      <td><%- post.description %></td>
+                      <td><a href="/admin/delete/<%- post.number %>"><button type="button" class="btn btn-danger">Удалить</button></a></td>
+                    </tr>
+                  <% }); %>
+                </tbody>
+              </table>
+              <% if (posts.length == 0) { %>
+                <p class="text-center">Здесь пока ничего нет</p>
+              <% } %>
               <a href="/admin/add" class="btn btn-primary">Создать пост</a>
             </div>
           </div>
