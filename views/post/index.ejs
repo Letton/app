@@ -3,9 +3,10 @@
 <main>
     <div class="container">
         <article>
-            <h2><%- post.title %></h2>
-            <p><%- post.description %></p>
+            <h2><%= post.title %></h2>
+            <p><%= post.description %></p>
             <p><%- post.text %></p>
+            <p style="text-align: left">Автор: <b><%= post.author %></b></p>
         </article>
     </div>
 </main>

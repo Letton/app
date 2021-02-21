@@ -7,9 +7,10 @@
         <% } %>
         <% posts.forEach(function(post){ %>
             <article>
-                <h2><%- post.title %></h2>
-                <p><%- post.description %></p>
+                <h2><%= post.title %></h2>
+                <p><%= post.description %></p>
                 <a href="/post/<%= post.number %>">Читать далее</a>
+                <p style="text-align: right">Автор: <b><%= post.author %></b></p>
             </article>
         <% }); %>
     </div>

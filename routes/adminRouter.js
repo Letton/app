@@ -3,6 +3,7 @@ const adminRouter = express.Router()
 const db = require("../db")
 const jwt = require('jsonwebtoken')
 const { SALT } = require('../config')
+var striptags = require('striptags')
 
 const authorization = (req, res, next) => {
     try {
@@ -43,12 +44,14 @@ adminRouter.post("/add", async (req, res) => {
     } else if (doc.role != 'admin') {
         res.status(403).render('errors/403')
     } else {
-        const {title, description, text} = req.body
+        let {title, description, text} = req.body
+        text = striptags(text, ['strong', 'h2', 'h3', 'h4', 'a', 'p', 'i', 'ol', 'ul', 'li', 'blockquote', 'br'])
         const post = {
             number: (await db.get().collection('posts').find().toArray()).length,
             title: title,
             description: description,
             text: text,
+            author: req.login,
             creationDate: new Date()
         }
         const status = await db.get().collection('posts').insertOne(post)
