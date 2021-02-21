@@ -87,7 +87,7 @@ accountRouter.get("/:id", async (req, res) => {
     if (!doc) {
         res.status(404).render('errors/404')
     } else {
-        res.render('account/user.ejs', {user: doc.login, userData: doc, route: 'account'})
+        res.render('account/user.ejs', {user: req.login, userData: doc, route: 'account'})
     }
 })
 
