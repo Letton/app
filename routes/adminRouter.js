@@ -16,9 +16,9 @@ adminRouter.use(authorization)
 adminRouter.get("/", async (req, res) => {
     const doc = await db.get().collection('users').findOne({login: req.login})
     if (!doc) {
-        res.render('errors/403')
+        res.status(403).render('errors/403')
     } else if (doc.role != 'admin') {
-        res.render('errors/403')
+        res.status(403).render('errors/403')
     } else {
         const posts = await db.get().collection('posts').find().toArray()
         res.render('admin/index', {route: 'admin', user: req.login, posts: posts})
@@ -28,9 +28,9 @@ adminRouter.get("/", async (req, res) => {
 adminRouter.get("/add", async (req, res) => {
     const doc = await db.get().collection('users').findOne({login: req.login})
     if (!doc) {
-        res.render('errors/403')
+        res.status(403).render('errors/403')
     } else if (doc.role != 'admin') {
-        res.render('errors/403')
+        res.status(403).render('errors/403')
     } else {
         res.render('admin/add', {route: 'admin', user: req.login})
     }
@@ -39,9 +39,9 @@ adminRouter.get("/add", async (req, res) => {
 adminRouter.post("/add", async (req, res) => {
     const doc = await db.get().collection('users').findOne({login: req.login})
     if (!doc) {
-        res.render('errors/403')
+        res.status(403).render('errors/403')
     } else if (doc.role != 'admin') {
-        res.render('errors/403')
+        res.status(403).render('errors/403')
     } else {
         const {title, description, text} = req.body
         const post = {
