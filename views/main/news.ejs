@@ -1,0 +1,21 @@
+<%- include('../partials/header.ejs'); -%>
+
+<main>
+    <div class="container">
+        <% if (news.length == 0) { %>
+            <p class="text-center">Здесь пока ничего нет</p>
+        <% } %>
+        <% news.forEach(function(article){ %>
+            <article>
+                <h4><%= article.title %></h4>
+                <p><%= article.description %></p>
+                <a href="<%= article.url %>">Читать далее</a>
+                <% if (article.author) { %>
+                    <p style="text-align: right">Автор: <b><%= article.author %></b></p>
+                <% } %>
+            </article>
+        <% }); %>
+    </div>
+</main>
+
+<%- include('../partials/footer.ejs'); -%>

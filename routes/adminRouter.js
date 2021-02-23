@@ -60,12 +60,17 @@ adminRouter.post("/add", async (req, res) => {
 })
 
 adminRouter.get("/delete/:id", async (req, res) => {
-    const doc = await db.get().collection('posts').findOne({number: parseInt(req.params.id)})
-    if (!doc) {
-        res.render('errors/404')
+    const user = await db.get().collection('users').findOne({login: req.login})
+    if (user.role != 'admin') {
+        res.status(403).render('errors/403')
     } else {
-        db.get().collection('posts').deleteOne({number: parseInt(req.params.id)})
-        res.redirect('/admin')
+        const doc = await db.get().collection('posts').findOne({number: parseInt(req.params.id)})
+        if (!doc) {
+            res.status(404).render('errors/404')
+        } else {
+            db.get().collection('posts').deleteOne({number: parseInt(req.params.id)})
+            res.redirect('/admin')
+        }
     }
 })
 
