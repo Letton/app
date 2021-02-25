@@ -59,4 +59,9 @@ h5 {
 input, textarea {
     background-color: rgb(13 17 23)!important;
     border: 1px solid #21262d!important;
+    color: #8b949e!important;
+}
+
+.ck-editor__main {
+    color: #000;
 }
