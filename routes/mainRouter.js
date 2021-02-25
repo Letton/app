@@ -15,7 +15,7 @@ const authorization = (req, res, next) => {
 mainRouter.use(authorization)
 
 mainRouter.get("/", async (req, res) => {
-    const docs = await db.get().collection('posts').find().toArray()
+    const docs = (await db.get().collection('posts').find().toArray()).reverse()
     res.render('main/index', {route: 'main', user: req.login, posts: docs})
     
 })

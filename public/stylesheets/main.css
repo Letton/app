@@ -3,8 +3,7 @@ main {
 }
 
 article {
-    border-radius: 5px;
-    background-color: #f8f9fa!important;
+    border-radius: 6px;
     margin-bottom: 25px;
     padding: 10px 25px;
 }

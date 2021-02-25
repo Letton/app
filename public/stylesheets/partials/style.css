@@ -1,0 +1,62 @@
+.bg-light {
+    background-color: #161b22!important;
+}
+
+.navbar-light .navbar-brand {
+    color: #f0f6fc!important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #f0f6fc!important;
+}
+body {
+    background-color: #0d1117!important;
+}
+
+article {
+    background-color: #0d1117!important;
+    border: 1px solid #30363d!important;
+    color: #8b949e;
+}
+
+article h2{
+    color: #c9d1d9;
+}
+
+article h4{
+    color: #c9d1d9;
+}
+
+.navbar-light .navbar-toggler {
+    color: #f0f6fc!important;
+    border-color: #f0f6fc!important;
+}
+
+.card {
+    background-color: #0d1117!important;
+    border: 1px solid #30363d!important;
+    color: #8b949e!important;
+}
+
+table {
+    color: #8b949e!important;
+    border-color: #8b949e!important;
+}
+
+.card-header {
+    background-color: #161b22!important;
+    color: #f0f6fc!important;
+}
+
+h2{
+    color:#c9d1d9!important;
+}
+
+h5 {
+    color:#c9d1d9!important;
+}
+
+input, textarea {
+    background-color: rgb(13 17 23)!important;
+    border: 1px solid #21262d!important;
+}
