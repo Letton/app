@@ -45,7 +45,7 @@ adminRouter.post("/add", async (req, res) => {
         res.status(403).render('errors/403')
     } else {
         let {title, description, text} = req.body
-        text = striptags(text, ['strong', 'h2', 'h3', 'h4', 'a', 'p', 'i', 'ol', 'ul', 'li', 'blockquote', 'br'])
+        text = striptags(text, ['strong', 'h2', 'h3', 'h4', 'a', 'p', 'i', 'ol', 'ul', 'li', 'blockquote', 'br', 'img'])
         const post = {
             number: (await db.get().collection('posts').find().toArray()).length,
             title: title,
